@@ -47,7 +47,7 @@ const props = defineProps<{
   label?: string
   description?: string
   error?: string
-  for?: string
+  forId?: string
   variant?: TextfieldVariants["variant"]
   size?: TextfieldVariants["size"]
   iconSize?: TextfieldIconVariants["size"]
@@ -90,7 +90,7 @@ const getInputPaddingClass = () => {
 
 <template>
   <Field :class="props.class">
-    <FieldLabel v-if="label" :for="for">{{ label }}</FieldLabel>
+    <FieldLabel v-if="label" :for="forId">{{ label }}</FieldLabel>
     <FieldGroup class="flex flex-1 items-center">
       <!-- Prepend icon (outside the textfield, to the left) -->
       <component
@@ -117,7 +117,7 @@ const getInputPaddingClass = () => {
           ]"
         />
         <input
-          :id="for"
+          :id="forId"
           :type="type"
           :value="modelValue"
           :placeholder="placeholder"

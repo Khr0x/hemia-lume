@@ -1,0 +1,19 @@
+{
+  "name": "alert",
+  "framework": "vue",
+  "type": "component",
+  "files": [
+    "alert.vue",
+    "alert-title.vue",
+    "alert-description.vue",
+    "alert-action.vue",
+    "index.ts"
+  ],
+  "registryDependencies": [],
+  "dependencies": [
+    "class-variance-authority"
+  ],
+  "peerDependencies": [
+    "@hemia/lume-vue"
+  ]
+}

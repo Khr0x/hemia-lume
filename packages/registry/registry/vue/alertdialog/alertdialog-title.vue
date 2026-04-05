@@ -1,0 +1,13 @@
+<script setup lang="ts">
+import { cn } from '@hemia/lume-vue'
+
+const props = defineProps<{
+  class?: string
+}>()
+</script>
+
+<template>
+  <h2 :class="cn('text-lg font-semibold leading-none tracking-tight', props.class)">
+    <slot />
+  </h2>
+</template>

@@ -19,6 +19,16 @@ const router = createRouter({
       component: () => import('@/views/TextFieldPage.vue'),
     },
     {
+      path: '/alert',
+      name: 'alert',
+      component: () => import('@/views/AlertPage.vue'),
+    },
+    {
+      path: '/alert-dialog',
+      name: 'alert-dialog',
+      component: () => import('@/views/AlertDialogPage.vue'),
+    },
+    {
       path: '/tokens',
       name: 'tokens',
       component: () => import('@/views/TokensPage.vue'),

@@ -1,0 +1,30 @@
+<script setup lang="ts">
+import { onMounted, watch } from 'vue'
+import { useRoute } from 'vue-router'
+import AlertDialogShowcase from '@/components/playground/sections/AlertDialogShowcase.vue'
+
+const route = useRoute()
+
+function handleHashChange() {
+  const hash = route.hash
+  if (hash) {
+    const id = hash.replace('#', '')
+    setTimeout(() => {
+      const el = document.getElementById(id)
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }
+    }, 100)
+  }
+}
+
+onMounted(() => {
+  handleHashChange()
+})
+
+watch(() => route.hash, handleHashChange)
+</script>
+
+<template>
+  <AlertDialogShowcase />
+</template>

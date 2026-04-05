@@ -202,12 +202,12 @@ export function cn(...inputs: ClassValue[]) {
 // En el archivo .vue del componente (self-contained)
 import { cva, type VariantProps } from "class-variance-authority"
 
-const buttonVariants = cva("base-classes", {
+const buttonVariants = cva('base-classes', {
   variants: {
-    variant: { default: "...", outline: "..." },
-    size: { sm: "...", md: "...", lg: "..." }
+    variant: { default: '...', outline: '...' },
+    size: { sm: '...', md: '...', lg: '...' }
   },
-  defaultVariants: { variant: "default", size: "md" }
+  defaultVariants: { variant: 'default', size: 'md' }
 })
 
 type ButtonVariants = VariantProps<typeof buttonVariants>
@@ -216,6 +216,7 @@ type ButtonVariants = VariantProps<typeof buttonVariants>
 - Siempre exportar el tipo `VariantProps`
 - Siempre definir `defaultVariants`
 - Importar desde `class-variance-authority` directamente
+- Usar **comillas simples** en los strings de cva (ej: `'default'`, `'outline'`) en lugar de comillas dobles
 
 ---
 
@@ -259,12 +260,12 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@hemia/lume-vue"
 
 // Variants definidas dentro del componente (self-contained)
-const buttonVariants = cva("base-classes", {
+const buttonVariants = cva('base-classes', {
   variants: {
-    variant: { default: "...", outline: "..." },
-    size: { sm: "...", md: "...", lg: "..." }
+    variant: { default: '...', outline: '...' },
+    size: { sm: '...', md: '...', lg: '...' }
   },
-  defaultVariants: { variant: "default", size: "md" }
+  defaultVariants: { variant: 'default', size: 'md' }
 })
 
 type ButtonVariants = VariantProps<typeof buttonVariants>

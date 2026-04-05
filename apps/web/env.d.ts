@@ -25,3 +25,26 @@ declare module "@/components/ui/textfield" {
   export { TextField }
 }
 
+declare module "@/components/ui/alert" {
+  import type { Component } from "vue"
+  const Alert: Component
+  const AlertTitle: Component
+  const AlertDescription: Component
+  const AlertAction: Component
+  export { Alert, AlertTitle, AlertDescription, AlertAction }
+}
+
+declare module "@/components/ui/alert-dialog" {
+  import type { Component } from "vue"
+  const AlertDialog: Component
+  const AlertDialogTrigger: Component
+  const AlertDialogContent: Component
+  const AlertDialogHeader: Component
+  const AlertDialogFooter: Component
+  const AlertDialogTitle: Component
+  const AlertDialogDescription: Component
+  const AlertDialogAction: Component
+  const AlertDialogCancel: Component
+  export { AlertDialog, AlertDialogTrigger, AlertDialogContent, AlertDialogHeader, AlertDialogFooter, AlertDialogTitle, AlertDialogDescription, AlertDialogAction, AlertDialogCancel }
+}
+

@@ -28,6 +28,8 @@ export default defineConfig({
       {
         text: "Components",
         items: [
+          { text: "Alert", link: "/components/alert" },
+          { text: "Alert Dialog", link: "/components/alert-dialog" },
           { text: "Button", link: "/components/button" },
           { text: "Field", link: "/components/field" },
           { text: "TextField", link: "/components/textfield" },

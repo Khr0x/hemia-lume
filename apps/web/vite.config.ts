@@ -7,7 +7,10 @@ export default defineConfig({
   resolve: {
     alias: {
       "@/components/ui": resolve(__dirname, "../../packages/registry/registry/vue"),
-      "@": resolve(__dirname, "src")
+      "@": resolve(__dirname, "src"),
+      "@hemia/lume-vue": resolve(__dirname, "../../packages/vue/src"),
+      "@hemia/lume": resolve(__dirname, "../../packages/core/src"),
+      "@hemia/lume-registry": resolve(__dirname, "../../packages/registry/src")
     }
   }
 })

@@ -1,0 +1,20 @@
+{
+  "name": "alert-dialog",
+  "framework": "vue",
+  "type": "component",
+  "files": [
+    "alertdialog.vue",
+    "alertdialog-trigger.vue",
+    "alertdialog-content.vue",
+    "alertdialog-header.vue",
+    "alertdialog-footer.vue",
+    "alertdialog-title.vue",
+    "alertdialog-description.vue",
+    "alertdialog-cancel.vue",
+    "alertdialog-action.vue",
+    "index.ts"
+  ],
+  "registryDependencies": ["button"],
+  "dependencies": [],
+  "peerDependencies": ["@hemia/lume-vue"]
+}
