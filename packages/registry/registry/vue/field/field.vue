@@ -1,6 +1,20 @@
 <script setup lang="ts">
-import { fieldVariants, type FieldVariants } from "./field.variants"
+import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@hemia/lume-vue"
+
+const fieldVariants = cva("grid gap-1.5 rounded-lg", {
+  variants: {
+    orientation: {
+      horizontal: "grid-cols-[1fr,auto]",
+      vertical: "",
+    },
+  },
+  defaultVariants: {
+    orientation: "vertical",
+  },
+})
+
+type FieldVariants = VariantProps<typeof fieldVariants>
 
 const props = defineProps<{
   orientation?: FieldVariants["orientation"]

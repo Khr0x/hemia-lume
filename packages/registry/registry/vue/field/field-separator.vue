@@ -1,6 +1,8 @@
 <script setup lang="ts">
-import { fieldSeparatorVariants } from "./field.variants"
+import { cva } from "class-variance-authority"
 import { cn } from "@hemia/lume-vue"
+
+const fieldSeparatorVariants = cva("h-px bg-border")
 
 const props = defineProps<{
   class?: string

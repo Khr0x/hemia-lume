@@ -10,7 +10,6 @@
     "field-legend.vue",
     "field-separator.vue",
     "fieldset.vue",
-    "field.variants.ts",
     "index.ts"
   ],
   "registryDependencies": [],

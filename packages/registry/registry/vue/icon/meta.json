@@ -4,7 +4,6 @@
   "type": "component",
   "files": [
     "icon.vue",
-    "icon.variants.ts",
     "index.ts"
   ],
   "registryDependencies": [],

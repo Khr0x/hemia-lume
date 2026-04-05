@@ -32,10 +32,9 @@ async function copyComponent(
   targetBase: string,
   options: { skipConfirm?: boolean } = {}
 ): Promise<boolean> {
-  const target = path.join(targetBase, componentName)
-  const exists = await fs.pathExists(target)
+  const target = path.join(targetBase, `${componentName}.vue`)
 
-  if (exists && !options.skipConfirm) {
+  if (await fs.pathExists(target) && !options.skipConfirm) {
     const { overwrite } = await prompts({
       type: "confirm",
       name: "overwrite",
@@ -49,10 +48,9 @@ async function copyComponent(
     }
   }
 
-  await fs.copy(source, target, {
-    filter: (src) => !src.endsWith("meta.json"),
-    overwrite: true
-  })
+  // Copy only the .vue file (self-contained component)
+  const sourceFile = path.join(source, `${componentName}.vue`)
+  await fs.copy(sourceFile, target, { overwrite: true })
 
   return true
 }

@@ -1,6 +1,8 @@
 <script setup lang="ts">
-import { fieldDescriptionVariants } from "./field.variants"
+import { cva } from "class-variance-authority"
 import { cn } from "@hemia/lume-vue"
+
+const fieldDescriptionVariants = cva("text-[0.8rem] text-muted-foreground")
 
 const props = defineProps<{
   class?: string

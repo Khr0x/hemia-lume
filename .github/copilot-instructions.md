@@ -84,8 +84,7 @@ Almacena los **templates** de componentes organizados por framework.
 packages/registry/registry/
 ├── vue/
 │   └── button/
-│       ├── button.vue           # Template del componente
-│       ├── button.variants.ts   # Variantes con cva
+│       ├── button.vue           # Template self-contained (incluye cva)
 │       └── meta.json            # Metadatos + dependencias
 └── react/  # futuro
 ```
@@ -100,10 +99,11 @@ Copia componentes desde `@hemia/lume-registry` al proyecto del usuario.
 import { createRequire } from "module"
 const registryPath = require.resolve("@hemia/lume-registry/package.json")
 
-// Copia componentes (NO copia meta.json)
-await fs.copy(source, target, {
-  filter: (src) => !src.endsWith("meta.json")
-})
+// Copia solo el archivo .vue (self-contained, incluye variants dentro)
+await fs.copy(
+  path.join(source, "button.vue"),
+  path.join(targetBase, "button.vue")
+)
 
 // Instala dependencias del meta.json
 await installDependencies(dependencies)
@@ -134,7 +134,7 @@ bunx --bun hemia-lume@latest init
 # 2. Usuario agrega componente
 bunx --bun hemia-lume@latest add button
 # → CLI lee @hemia/lume-registry/registry/vue/button/
-# → Copia button.vue y button.variants.ts a src/components/ui/button/
+# → Copia button.vue (self-contained) a src/components/ui/
 # → NO copia meta.json
 # → Instala deps del meta.json si no existen
 
@@ -199,10 +199,10 @@ export function cn(...inputs: ClassValue[]) {
 
 ### `cva()` — variantes de componentes
 ```ts
-// Ejemplo: button.variants.ts (Vue)
-import { cva, type VariantProps } from "@hemia/lume-vue"
+// En el archivo .vue del componente (self-contained)
+import { cva, type VariantProps } from "class-variance-authority"
 
-export const buttonVariants = cva("base-classes", {
+const buttonVariants = cva("base-classes", {
   variants: {
     variant: { default: "...", outline: "..." },
     size: { sm: "...", md: "...", lg: "..." }
@@ -210,28 +210,26 @@ export const buttonVariants = cva("base-classes", {
   defaultVariants: { variant: "default", size: "md" }
 })
 
-export type ButtonVariants = VariantProps<typeof buttonVariants>
+type ButtonVariants = VariantProps<typeof buttonVariants>
 ```
-- Cada componente tiene su propio archivo `.variants.ts`
+- Las variants van **dentro del archivo `.vue`** (self-contained)
 - Siempre exportar el tipo `VariantProps`
 - Siempre definir `defaultVariants`
-- Importar desde el package del framework (`@hemia/lume-vue`), no desde `@hemia/lume` directamente
+- Importar desde `class-variance-authority` directamente
 
 ---
 
 ### Estructura de un componente en el registry
 ```
 packages/registry/registry/<framework>/<nombre>/
-├── <nombre>.vue           # Componente (extensión según framework)
-├── <nombre>.variants.ts   # Variantes con cva
+├── <nombre>.vue           # Componente self-contained (incluye variants)
 └── meta.json              # Metadatos para el CLI
 ```
 
 Ejemplo Vue:
 ```
 packages/registry/registry/vue/button/
-├── button.vue
-├── button.variants.ts
+├── button.vue           # Self-contained (incluye variants)
 └── meta.json
 ```
 
@@ -243,7 +241,7 @@ packages/registry/registry/vue/button/
   "name": "component-name",
   "framework": "vue",
   "type": "component",
-  "files": ["component.vue", "component.variants.ts"],
+  "files": ["component.vue"],
   "registryDependencies": [],
   "dependencies": ["class-variance-authority"],
   "peerDependencies": ["@hemia/lume-vue"]
@@ -257,25 +255,37 @@ packages/registry/registry/vue/button/
 ### Estructura de un componente Vue
 ```vue
 <script setup lang="ts">
-import { componentVariants, type ComponentVariants } from "./component.variants"
+import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@hemia/lume-vue"
 
+// Variants definidas dentro del componente (self-contained)
+const buttonVariants = cva("base-classes", {
+  variants: {
+    variant: { default: "...", outline: "..." },
+    size: { sm: "...", md: "...", lg: "..." }
+  },
+  defaultVariants: { variant: "default", size: "md" }
+})
+
+type ButtonVariants = VariantProps<typeof buttonVariants>
+
 const props = defineProps<{
-  variant?: ComponentVariants["variant"]
-  size?: ComponentVariants["size"]
+  variant?: ButtonVariants["variant"]
+  size?: ButtonVariants["size"]
   class?: string
 }>()
 </script>
 
 <template>
-  <element :class="cn(componentVariants({ variant, size }), props.class)">
+  <button :class="cn(buttonVariants({ variant: props.variant, size: props.size }), props.class)">
     <slot />
-  </element>
+  </button>
 </template>
 ```
 
 **Reglas para componentes Vue:**
 - Siempre usar `<script setup lang="ts">`
+- Las variants van dentro del `<script>` del componente (no en archivo separado)
 - Siempre aceptar prop `class?: string` para permitir override externo
 - Siempre usar `cn()` combinando variantes + prop class
 - Siempre usar `<slot />` para contenido
@@ -514,11 +524,10 @@ Todos los packages usan exports map moderno:
 ## ✅ Checklist al agregar un nuevo componente (Vue)
 
 1. Crear carpeta `packages/registry/registry/vue/<nombre>/`
-2. Crear `<nombre>.variants.ts` con `cva`, importando desde `@hemia/lume-vue`
-3. Crear `<nombre>.vue` con `<script setup lang="ts">`, prop `class?`, y `cn()`
-4. Crear `meta.json` con `"framework": "vue"`, archivos, deps y peerDeps
-5. Documentar en `apps/docs/components/<nombre>.md`
-6. Probar en `apps/web/`
+2. Crear `<nombre>.vue` con `<script setup lang="ts">`, variants dentro del script, y `cn()`
+3. Crear `meta.json` con `"framework": "vue"`, archivos, deps y peerDeps
+4. Documentar en `apps/docs/components/<nombre>.md`
+5. Probar en `apps/web/`
 
 ---
 

@@ -4,7 +4,6 @@
   "type": "component",
   "files": [
     "button.vue",
-    "button.variants.ts",
     "index.ts"
   ],
   "registryDependencies": [],

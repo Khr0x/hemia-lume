@@ -1,6 +1,8 @@
 <script setup lang="ts">
-import { fieldLegendVariants } from "./field.variants"
+import { cva } from "class-variance-authority"
 import { cn } from "@hemia/lume-vue"
+
+const fieldLegendVariants = cva("text-sm font-medium leading-none")
 
 const props = defineProps<{
   class?: string

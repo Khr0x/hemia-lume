@@ -4,7 +4,6 @@
   "type": "component",
   "files": [
     "textfield.vue",
-    "textfield.variants.ts",
     "index.ts"
   ],
   "registryDependencies": ["field"],

@@ -1,6 +1,10 @@
 <script setup lang="ts">
-import { fieldGroupVariants } from "./field.variants"
+import { cva } from "class-variance-authority"
 import { cn } from "@hemia/lume-vue"
+
+const fieldGroupVariants = cva(
+  "flex flex-wrap items-center gap-2 has-[input:focus]:rounded-lg has-[input:focus]:border-ring has-[input:focus]:ring-3 has-[input:focus]:ring-ring/50"
+)
 
 const props = defineProps<{
   class?: string
