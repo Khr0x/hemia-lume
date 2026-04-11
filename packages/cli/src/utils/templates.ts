@@ -58,7 +58,7 @@ export const GLOBALS_CSS_TEMPLATE_VUETIFY = `@layer vuetify;
 
   --lume-border: hsl(214.3 31.8% 91.4%);
   --lume-input: hsl(214.3 31.8% 91.4%);
-  --lume-ring: hsl(210 5% 80% / 30%);
+  --lume-ring: hsl(222.2 47.4% 11.2%);
 
   --lume-background: hsl(0 0% 100%);
   --lume-foreground: hsl(222.2 47.4% 11.2%);
@@ -85,7 +85,7 @@ export const GLOBALS_CSS_TEMPLATE_VUETIFY = `@layer vuetify;
 
   --lume-border: hsl(217.2 32.6% 17.5%);
   --lume-input: hsl(217.2 32.6% 17.5%);
-  --lume-ring: hsl(217.2 32.6% 50% / 30%);
+  --lume-ring: hsl(210 40% 98%);
 
   --lume-background: hsl(222.2 84% 4.9%);
   --lume-foreground: hsl(210 40% 98%);
@@ -172,7 +172,7 @@ export const GLOBALS_CSS_TEMPLATE = `@import "tailwindcss";
 
   --lume-border: hsl(214.3 31.8% 91.4%);
   --lume-input: hsl(214.3 31.8% 91.4%);
-  --lume-ring: hsl(210 5% 80% / 30%);
+  --lume-ring: hsl(222.2 47.4% 11.2%);
 
   --lume-background: hsl(0 0% 100%);
   --lume-foreground: hsl(222.2 47.4% 11.2%);
@@ -199,7 +199,7 @@ export const GLOBALS_CSS_TEMPLATE = `@import "tailwindcss";
 
   --lume-border: hsl(217.2 32.6% 17.5%);
   --lume-input: hsl(217.2 32.6% 17.5%);
-  --lume-ring: hsl(217.2 32.6% 50% / 30%);
+  --lume-ring: hsl(210 40% 98%);
 
   --lume-background: hsl(222.2 84% 4.9%);
   --lume-foreground: hsl(210 40% 98%);

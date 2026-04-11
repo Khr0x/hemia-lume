@@ -4,7 +4,7 @@ import { cn } from "@hemia/lume-vue"
 import { Field, FieldLabel, FieldDescription, FieldGroup } from "../field/index"
 
 const textfieldVariants = cva(
-  "flex h-9 w-full min-w-0 rounded-lg border border-lume-input bg-transparent px-2.5 py-1 text-base transition-colors file:inline-flex file:h-6 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-lume-foreground placeholder:text-lume-muted-foreground disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-lume-input/50 disabled:opacity-50 md:text-sm dark:bg-lume-input/30 dark:disabled:bg-lume-input/80 focus-within:ring-2 focus-within:ring-lume-primary/25",
+  "flex h-9 w-full min-w-0 rounded-lg border border-lume-input bg-transparent px-2.5 py-1 text-base transition-colors file:inline-flex file:h-6 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-lume-foreground placeholder:text-lume-muted-foreground disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-lume-input/50 disabled:opacity-50 md:text-sm dark:bg-lume-input/30 dark:disabled:bg-lume-input/80",
   {
     variants: {
       variant: {
@@ -105,20 +105,17 @@ const getInputPaddingClass = () => {
         :aria-invalid="!!error"
         :class="cn(
           textfieldVariants({ variant: error ? 'error' : variant, size }),
-          'flex flex-1 items-center',
+          'flex flex-1 items-center gap-2',
           error
-            ? 'border-lume-destructive ring-2 ring-lume-destructive/20 dark:border-lume-destructive/50 dark:ring-lume-destructive/40'
-            : 'focus-within:ring-2 focus-within:border-lume-ring focus-within:ring-lume-ring/50'
+            ? 'border-lume-destructive ring-2 ring-lume-destructive/20 ring-offset-1 ring-offset-background dark:border-lume-destructive/50 dark:ring-lume-destructive/40'
+            : 'focus-within:ring-2 focus-within:border-lume-ring focus-within:ring-lume-ring/25 focus-within:ring-offset-1 focus-within:ring-offset-background'
         )"
       >
         <component
           v-if="prependInnerIcon"
           :is="prependInnerIcon"
           class="text-lume-muted-foreground flex shrink-0 items-center"
-          :class="[
-            iconSize === 'sm' ? 'size-3.5' : iconSize === 'lg' ? 'size-5' : 'size-4',
-            'me-1.5'
-          ]"
+          :class="iconSize === 'sm' ? 'size-3.5' : iconSize === 'lg' ? 'size-5' : 'size-4'"
         />
         <input
           :id="forId"
@@ -137,10 +134,7 @@ const getInputPaddingClass = () => {
           v-if="appendInnerIcon"
           :is="appendInnerIcon"
           class="text-lume-muted-foreground flex shrink-0 items-center"
-          :class="[
-            iconSize === 'sm' ? 'size-3.5' : iconSize === 'lg' ? 'size-5' : 'size-4',
-            'ms-1.5'
-          ]"
+          :class="iconSize === 'sm' ? 'size-3.5' : iconSize === 'lg' ? 'size-5' : 'size-4'"
         />
       </div>
       
