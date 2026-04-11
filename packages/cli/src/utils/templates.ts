@@ -26,6 +26,12 @@ export const GLOBALS_CSS_TEMPLATE_VUETIFY = `@layer vuetify;
   --color-lume-ring: var(--lume-ring);
   --color-lume-destructive: var(--lume-destructive);
   --color-lume-destructive-foreground: var(--lume-destructive-foreground);
+  --color-lume-success: var(--lume-success);
+  --color-lume-success-200: var(--lume-success-200);
+  --color-lume-warning: var(--lume-warning);
+  --color-lume-warning-200: var(--lume-warning-200);
+  --color-lume-info: var(--lume-info);
+  --color-lume-info-200: var(--lume-info-200);
 
   --radius-sm: var(--lume-radius-sm);
   --radius-md: var(--lume-radius-md);
@@ -65,6 +71,13 @@ export const GLOBALS_CSS_TEMPLATE_VUETIFY = `@layer vuetify;
 
   --lume-card: hsl(0 0% 100%);
   --lume-card-foreground: hsl(222.2 47.4% 11.2%);
+
+  --lume-success: hsl(142.1 76.2% 36.3%);
+  --lume-success-200: hsl(160 84% 43.2%);
+  --lume-warning: hsl(38 92.2% 50.2%);
+  --lume-warning-200: hsl(40 88.8% 53.6%);
+  --lume-info: hsl(199 89.4% 48.4%);
+  --lume-info-200: hsl(190 90% 53.6%);
 }
 
 [data-theme="dark"] {
@@ -92,6 +105,13 @@ export const GLOBALS_CSS_TEMPLATE_VUETIFY = `@layer vuetify;
 
   --lume-card: hsl(222.2 84% 4.9%);
   --lume-card-foreground: hsl(210 40% 98%);
+
+  --lume-success: hsl(160 84% 43.2%);
+  --lume-success-200: hsl(160 84% 53.2%);
+  --lume-warning: hsl(40 88.8% 53.6%);
+  --lume-warning-200: hsl(40 88.8% 63.6%);
+  --lume-info: hsl(190 90% 53.6%);
+  --lume-info-200: hsl(190 90% 63.6%);
 }
 
 @layer base {
@@ -140,6 +160,12 @@ export const GLOBALS_CSS_TEMPLATE = `@import "tailwindcss";
   --color-lume-ring: var(--lume-ring);
   --color-lume-destructive: var(--lume-destructive);
   --color-lume-destructive-foreground: var(--lume-destructive-foreground);
+  --color-lume-success: var(--lume-success);
+  --color-lume-success-200: var(--lume-success-200);
+  --color-lume-warning: var(--lume-warning);
+  --color-lume-warning-200: var(--lume-warning-200);
+  --color-lume-info: var(--lume-info);
+  --color-lume-info-200: var(--lume-info-200);
 
   --radius-sm: var(--lume-radius-sm);
   --radius-md: var(--lume-radius-md);
@@ -179,6 +205,13 @@ export const GLOBALS_CSS_TEMPLATE = `@import "tailwindcss";
 
   --lume-card: hsl(0 0% 100%);
   --lume-card-foreground: hsl(222.2 47.4% 11.2%);
+
+  --lume-success: hsl(142.1 76.2% 36.3%);
+  --lume-success-200: hsl(160 84% 43.2%);
+  --lume-warning: hsl(38 92.2% 50.2%);
+  --lume-warning-200: hsl(40 88.8% 53.6%);
+  --lume-info: hsl(199 89.4% 48.4%);
+  --lume-info-200: hsl(190 90% 53.6%);
 }
 
 [data-theme="dark"] {
@@ -206,6 +239,13 @@ export const GLOBALS_CSS_TEMPLATE = `@import "tailwindcss";
 
   --lume-card: hsl(222.2 84% 4.9%);
   --lume-card-foreground: hsl(210 40% 98%);
+
+  --lume-success: hsl(160 84% 43.2%);
+  --lume-success-200: hsl(160 84% 53.2%);
+  --lume-warning: hsl(40 88.8% 53.6%);
+  --lume-warning-200: hsl(40 88.8% 63.6%);
+  --lume-info: hsl(190 90% 53.6%);
+  --lume-info-200: hsl(190 90% 63.6%);
 }
 
 @layer base {

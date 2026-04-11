@@ -107,8 +107,8 @@ const getInputPaddingClass = () => {
           textfieldVariants({ variant: error ? 'error' : variant, size }),
           'flex flex-1 items-center gap-2',
           error
-            ? 'border-lume-destructive ring-2 ring-lume-destructive/20 ring-offset-1 ring-offset-background dark:border-lume-destructive/50 dark:ring-lume-destructive/40'
-            : 'focus-within:ring-2 focus-within:border-lume-ring focus-within:ring-lume-ring/25 focus-within:ring-offset-1 focus-within:ring-offset-background'
+            ? 'border-lume-destructive ring-2 ring-lume-destructive/20 dark:border-lume-destructive/50 dark:ring-lume-destructive/40'
+            : 'focus-within:ring-2 focus-within:ring-lume-ring/25'
         )"
       >
         <component

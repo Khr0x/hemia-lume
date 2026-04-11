@@ -14,11 +14,11 @@ const alertVariants = cva(
         tonal:
           "border-transparent bg-lume-destructive/10 text-lume-destructive dark:bg-lume-destructive/30 dark:text-lume-destructive-200",
         success:
-          "border-transparent bg-emerald-500/10 text-emerald-700 dark:text-emerald-200 dark:bg-emerald-500/30",
+          "bg-green-50 border-green-200/50 text-green-800 dark:bg-green-900/30 dark:text-green-200 dark:border-green-800/50",
         warning:
-          "border-transparent bg-amber-500/10 text-amber-700 dark:text-amber-200 dark:bg-amber-500/30",
+          "bg-amber-50 border-amber-200/50 text-amber-800 dark:bg-amber-900/30 dark:text-amber-200 dark:border-amber-800/50",
         info:
-          "border-transparent bg-blue-500/10 text-blue-700 dark:text-blue-200 dark:bg-blue-500/30",
+          "bg-blue-50 border-blue-200/50 text-blue-800 dark:bg-blue-900/30 dark:text-blue-200 dark:border-blue-800/50",
       },
     },
     defaultVariants: {

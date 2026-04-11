@@ -4,7 +4,7 @@ import tailwindcss from "@tailwindcss/vite"
 import { resolve } from "path"
 
 export default defineConfig({
-  plugins: [vue(), tailwindcss()],
+  plugins: [ tailwindcss(),vue()],
   resolve: {
     alias: {
       "@/components/ui": resolve(__dirname, "../../packages/registry/registry/vue"),
