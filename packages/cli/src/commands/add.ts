@@ -133,16 +133,15 @@ export async function add(components: string | string[] = [], options: AddOption
   let copiedCount = 0
   for (const componentName of componentsArray) {
     const sourceDir = path.join(frameworkRegistry, componentName)
-    const sourceFile = path.join(sourceDir, `${componentName}.vue`)
-    const target = path.join(targetBase, `${componentName}.vue`)
+    const targetDir = path.join(targetBase, componentName)
 
-    // Check if source file exists
-    if (!(await fs.pathExists(sourceFile))) {
-      log(pc.red(`❌ Source file not found: ${sourceFile}`), options)
+    // Check if source directory exists
+    if (!(await fs.pathExists(sourceDir))) {
+      log(pc.red(`❌ Source directory not found: ${sourceDir}`), options)
       continue
     }
 
-    const targetExists = await fs.pathExists(target)
+    const targetExists = await fs.pathExists(targetDir)
 
     // Handle overwrite options
     if (targetExists && !options.overwrite && !options.yes) {
@@ -160,7 +159,10 @@ export async function add(components: string | string[] = [], options: AddOption
     }
 
     if (options.overwrite || options.yes || !targetExists) {
-      await fs.copy(sourceFile, target, { overwrite: true })
+      await fs.copy(sourceDir, targetDir, {
+        overwrite: true,
+        filter: (src) => path.basename(src) !== "meta.json"
+      })
       copiedCount++
       log(pc.green(`   ✓ ${componentName}`), options)
     }
